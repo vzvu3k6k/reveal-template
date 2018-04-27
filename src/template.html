@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+      .reveal aside {
+        display: none !important;
+      }
+      .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+        text-transform: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        ${require('./slides.pug')}
+      </div>
+    </div>
+  </body>
+</html>

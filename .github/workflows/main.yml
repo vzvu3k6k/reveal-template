@@ -20,6 +20,8 @@ jobs:
         npm run build
     - name: publish
       run: |
+        echo "$DEPLOY_KEY" > ~/.ssh/id_rsa
+        chmod 400 ~/.ssh/id_rsa
         git config --global user.email "vzvu3k6k@gmail.com"
         git config --global user.name "vzvu3k6k (bot)"
         npx gh-pages@2.1.1 --dist dist --message "Update"

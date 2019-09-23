@@ -20,6 +20,7 @@ jobs:
         npm run build
     - name: publish
       run: |
+        mkdir -p ~/.ssh
         echo "$DEPLOY_KEY" > ~/.ssh/id_rsa
         chmod 400 ~/.ssh/id_rsa
         git config --global user.email "vzvu3k6k@gmail.com"

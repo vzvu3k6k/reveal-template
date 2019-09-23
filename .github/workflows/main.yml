@@ -21,6 +21,7 @@ jobs:
     - name: publish
       run: |
         mkdir -p ~/.ssh
+        ssh-keyscan -t rsa github.com > ~/.ssh/known_hosts
         echo "$DEPLOY_KEY" > ~/.ssh/id_rsa
         chmod 400 ~/.ssh/id_rsa
         git config --global user.email "vzvu3k6k@gmail.com"

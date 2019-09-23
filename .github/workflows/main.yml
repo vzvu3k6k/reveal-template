@@ -1,0 +1,25 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - master
+      - preview/*
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+    - name: npm install, build
+      run: |
+        npm install
+        npm run build
+    - name: publish
+      run: |
+        git config --global user.email "vzvu3k6k@gmail.com"
+        git config --global user.name "vzvu3k6k (bot)"
+        npx gh-pages@2.1.1 --dist dist --message "Update"

@@ -16,10 +16,6 @@ This is a template for [reveal.js](https://revealjs.com/) presentation.
 
 `npm build` outputs your presentation files to `./dist`.
 
-# Setup CI/CD
+# CI/CD
 
-This template has a workflow of GitHub Actions to publish a presentation to GitHub Pages.
-
-1. Add a writable deploy key
-2. Add a `DEPLOY_KEY` secret
-3. Set `gh-pages` branch as a GitHub Pages source
+GitHub Actions runs `npm build` and publishes `./dist` to `gh-pages` branch.

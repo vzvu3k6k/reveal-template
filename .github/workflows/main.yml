@@ -18,11 +18,9 @@ jobs:
       run: |
         npm install
         npm run build
-    - name: publish
-      run: |
-        git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-        git config --global user.name "${GITHUB_ACTOR} (bot)"
-        git remote add deploy "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-        npx gh-pages@2.1.1 --remote deploy --dist dist --message "Update"
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v2.4.0
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./dist
